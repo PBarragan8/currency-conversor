@@ -5,10 +5,17 @@ coinObj  = {
     bolToArs: 10,
 }
 
-const conversor = (coinZeroToArs, currencyOneToArs, amountCoinZero) => {
-   var amountCoinOne = (coinZeroToArs/currencyOneToArs) * amountCoinZero;
-   return amountCoinOne;
+function conversor (coinZeroToArs, currencyOneToArs, amountCoinZero) {
+    if (typeof coinZeroToArs === "number" &&
+        typeof currencyOneToArs === "number" &&
+        typeof amountCoinZero === "number" ) {
+        var amountCoinOne = (coinZeroToArs/currencyOneToArs) * amountCoinZero;
+        return amountCoinOne;
+    } else {
+        throw new Error ("only numbers");
+    }
 }
 
 
-console.log(conversor(coinObj.yuanToArs, coinObj.bolToArs, 3)); 
+console.log(conversor(coinObj.bolToArs, coinObj.yuanToArs, 2));
+
